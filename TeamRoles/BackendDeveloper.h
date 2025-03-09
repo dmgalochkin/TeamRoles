@@ -2,7 +2,7 @@
 #include <string>
 #include "Developer.h"
 
-class BackendDeveloper : Developer {
+class BackendDeveloper : public Developer {
 protected:
   int numberOfDatabases;
   std::string* databases;
@@ -21,6 +21,9 @@ public:
                                std::string* containers_);
 
   std::string GetRole() override;
+
+  void print(std::ostream & o);
+  void read(std::istream & i);
 
   BackendDeveloper();
   BackendDeveloper(int age_, int salary_,

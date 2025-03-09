@@ -3,7 +3,7 @@
 #include "Analyst.h"
 
 
-class DataAnalyst : Analyst {
+class DataAnalyst : public Analyst {
 protected:
   std::string bigDataPlatform;
   std::string dataVisualizationTool;
@@ -16,6 +16,9 @@ public:
   void SetDataVisualizationTool(const std::string & dataVisualizationTool_);
 
   std::string GetRole() override;
+
+  void print(std::ostream & o);
+  void read(std::istream & i);
 
   DataAnalyst();
   DataAnalyst(int age_, int salary_,

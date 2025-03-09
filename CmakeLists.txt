@@ -17,3 +17,5 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/TeamRoles)
 
 add_subdirectory(TeamRoles)
 add_subdirectory(Application)
+add_subdirectory(gtest)
+add_subdirectory(test)

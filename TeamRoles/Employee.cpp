@@ -76,11 +76,10 @@ void Employee::SetName(const std::string & name_)
 }
 
 std::ostream& operator <<(std::ostream& o, Employee& e) {
-  o << e.name << ' ' << e.age << ' ' << "y.o." << ' '
-    << e.salary << ' ' << "RUB" << ' ' << e.workExperience << 'Y';
+  e.print(o);
   return o;
 }
 std::istream& operator >>(std::istream& i, Employee& e) {
-  i >> e.name >> e.age >> e.salary >> e.workExperience;
+  e.read(i);
   return i;
 }

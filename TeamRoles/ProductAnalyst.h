@@ -2,7 +2,7 @@
 #include <string>
 #include "Analyst.h"
 
-class ProductAnalyst : Analyst {
+class ProductAnalyst : public Analyst {
 protected:
   int numberOfProductMetrics;
   std::string* productMetrics;
@@ -17,6 +17,9 @@ public:
   void SetAbTestingTool(const std::string & abTestingTool_);
 
   std::string GetRole() override;
+
+  void print(std::ostream & o);
+  void read(std::istream & i);
 
   ProductAnalyst();
   ProductAnalyst(int age_, int salary_,

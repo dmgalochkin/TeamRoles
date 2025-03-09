@@ -2,7 +2,7 @@
 #include "string"
 #include "Employee.h"
 
-class Analyst : Employee {
+class Analyst : public Employee {
 protected:
   std::string reportFormat;
   int numberOfAnalysisTools;
@@ -17,7 +17,13 @@ public:
   void SetAnalysisTools(int numberOfAnalysisTools_,
                         std::string* analysisTools_);
 
+  void SetSalary(int salary_);
+  void SetWorkExperience(int workExperience_);
+
   std::string GetRole();
+
+  virtual void print(std::ostream & o) = 0;
+  virtual void read(std::istream & i) = 0;
 
   Analyst();
   Analyst(int age_, int salary_,

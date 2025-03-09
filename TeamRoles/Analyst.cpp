@@ -94,6 +94,24 @@ void Analyst::SetAnalysisTools(int numberOfAnalysisTools_,
   }
 }
 
+void Analyst::SetSalary(int salary_)
+{
+  if (salary_ < this->salary)
+    throw "Cannot decrease salary";
+  if (salary_ < 20000)
+    throw "Analyst can't have salary less than 20000 RUB";
+  this->salary = salary_;
+}
+
+void Analyst::SetWorkExperience(int workExperience_)
+{
+  if (workExperience_ < this->workExperience)
+    throw "Cannot decrease work experience";
+  if (workExperience_ < 1)
+    throw "Analyst can't have work experience less than 1 years ";
+  this->workExperience = workExperience_;
+}
+
 std::string Analyst::GetRole()
 {
   return "Analyst";

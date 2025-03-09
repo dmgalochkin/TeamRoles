@@ -2,7 +2,7 @@
 #include <string>
 #include "Developer.h"
 
-class FrontendDeveloper : Developer {
+class FrontendDeveloper : public Developer {
 protected:
   int numberOfUIFrameworks;
   std::string* UIFrameworks;
@@ -17,6 +17,9 @@ public:
   void SetPWAKnowledge(bool PWAKnowledge_);
 
   std::string GetRole() override;
+
+  void print(std::ostream & o);
+  void read(std::istream & i);
 
   FrontendDeveloper();
   FrontendDeveloper(int age_, int salary_,

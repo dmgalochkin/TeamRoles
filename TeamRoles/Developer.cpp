@@ -18,7 +18,10 @@ Developer::Developer(int age_, int salary_,
   if (salary_ < 30000)
     throw "Developer can't have salary less than 30000 RUB";
 
-  this->level = level_;
+  if (level_ < 1)
+    throw "Developer can't have level less than 1";
+  if (level_ > 3)
+    throw "Developer can't have level more than 3";  this->level = level_;
   if (numberOfProgrammingLanguages_ < 0)
     throw "Developer can't have number of programming languages less than 0";
   this->numberOfProgrammingLanguages = numberOfProgrammingLanguages_;
@@ -108,6 +111,24 @@ void Developer::SetPreferredIDE(const std::string & preferredIDE_)
   if (preferredIDE_.empty())
     throw "Preferred IDE can't be empty";
   this->preferredIDE = preferredIDE_;
+}
+
+void Developer::SetSalary(int salary_)
+{
+  if (salary_ < this->salary)
+    throw "Cannot decrease salary";
+  if (salary_ < 30000)
+    throw "Developer can't have salary less than 30000 RUB";
+  this->salary = salary_;
+}
+
+void Developer::SetWorkExperience(int workExperience_)
+{
+  if (workExperience_ < this->workExperience)
+    throw "Cannot decrease work experience";
+  if (workExperience_ < 3)
+    throw "Developer can't have work experience less than 3 years ";
+  this->workExperience = workExperience_;
 }
 
 std::string Developer::GetRole()
