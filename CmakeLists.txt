@@ -4,7 +4,7 @@ set(PROJECT_NAME TeamRoles)
 project(${PROJECT_NAME})
 
 
-set(application Application)
+set(application TApplication)
 set(library TeamRoles)
 
 set(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "Config" FORCE)
@@ -16,6 +16,6 @@ endif()
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/TeamRoles)
 
 add_subdirectory(TeamRoles)
-add_subdirectory(Application)
+add_subdirectory(TApp)
 add_subdirectory(gtest)
 add_subdirectory(test)
