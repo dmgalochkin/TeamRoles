@@ -46,5 +46,4 @@ jobs:
           ls
           make
           echo make complete
-          ./TApp/TApplication
           ./test/TeamRolesTest
