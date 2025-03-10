@@ -22,15 +22,14 @@ TEST(DataAnalystTest, DefaultConstructorValues) {
 }
 
 TEST(DataAnalystTest, ThrowOnEmptyPlatformInConstructor) {
-std::string tools[] = {"Excel"};
-
-    ASSERT_ANY_THROW(
-      DataAnalyst da(
-    25, 50000, "John", 2,
-    "CSV", 1, tools,
-    "", "PowerBI"
-    )
-    );
+  std::string tools[] = {"Excel"};
+  ASSERT_ANY_THROW(
+    DataAnalyst da(
+  25, 50000, "John", 2,
+  "CSV", 1, tools,
+  "", "PowerBI"
+  )
+  );
 }
 
 TEST(DataAnalystTest, GetRoleReturnsCorrectValue) {

@@ -6,10 +6,10 @@ std::string tools[] = {"Google Analytics"};
 std::string metrics[] = {"Conversion Rate"};
 
   ASSERT_NO_THROW(
-          ProductAnalyst pa(
-          30, 60000, "Anna", 3,
-          "PDF", 1, tools,
-          1, metrics, "Optimizely"
+    ProductAnalyst pa(
+    30, 60000, "Anna", 3,
+    "PDF", 1, tools,
+    1, metrics, "Optimizely"
   )
   );
 }

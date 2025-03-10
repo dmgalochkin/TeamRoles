@@ -9,10 +9,10 @@ TEST(BackendDeveloper, CreateWithValidParameters) {
   std::string containers[] = {"Docker"};
 
   ASSERT_NO_THROW(
-          BackendDeveloper dev(
-          30, 150000, "John", 5, 2,
-          2, langs, "CLion",
-          1, dbs, 1, containers
+    BackendDeveloper dev(
+    30, 150000, "John", 5, 2,
+    2, langs, "CLion",
+    1, dbs, 1, containers
   )
   );
 }
@@ -31,10 +31,10 @@ TEST(BackendDeveloper, ThrowsWhenNegativeDatabases) {
   std::string containers[] = {"Podman"};
 
   ASSERT_ANY_THROW(
-          BackendDeveloper dev(
-          25, 100000, "Alice", 4, 1,
-          1, langs, "VSCode",
-          -1, dbs, 1, containers
+    BackendDeveloper dev(
+    25, 100000, "Alice", 4, 1,
+    1, langs, "VSCode",
+    -1, dbs, 1, containers
   )
   );
 }
