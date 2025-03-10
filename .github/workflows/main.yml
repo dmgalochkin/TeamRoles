@@ -40,5 +40,5 @@ jobs:
           cmake ..
           make
           echo make complete
-          ./Application/Application
+          ./TApp/TApplication
           ./test/TeamRolesTest
