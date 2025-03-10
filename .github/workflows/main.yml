@@ -37,7 +37,9 @@ jobs:
         run: |
           mkdir build
           cd build
+          ls
           cmake ..
+          ls
           make
           echo make complete
           ./TApp/TApplication
