@@ -13,7 +13,7 @@ TEST(BackendDeveloper, CreateWithValidParameters) {
     30, 150000, "John", 5, 2,
     2, langs, "CLion",
     1, dbs, 1, containers
-  )
+    )
   );
 }
 
@@ -35,7 +35,7 @@ TEST(BackendDeveloper, ThrowsWhenNegativeDatabases) {
     25, 100000, "Alice", 4, 1,
     1, langs, "VSCode",
     -1, dbs, 1, containers
-  )
+    )
   );
 }
 
@@ -53,9 +53,9 @@ TEST(BackendDeveloper, CopyConstructorWorks) {
   std::string containers[] = {"Kubernetes"};
 
   BackendDeveloper orig(
-          35, 200000, "Mike", 7, 3,
-          1, langs, "GoLand",
-          1, dbs, 1, containers
+    35, 200000, "Mike", 7, 3,
+    1, langs, "GoLand",
+    1, dbs, 1, containers
   );
 
   BackendDeveloper copy(orig);

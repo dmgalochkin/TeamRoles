@@ -2,15 +2,15 @@
 #include <gtest.h>
 
 TEST(ProductAnalystTest, CreateWithValidParameters) {
-std::string tools[] = {"Google Analytics"};
-std::string metrics[] = {"Conversion Rate"};
+  std::string tools[] = {"Google Analytics"};
+  std::string metrics[] = {"Conversion Rate"};
 
   ASSERT_NO_THROW(
     ProductAnalyst pa(
     30, 60000, "Anna", 3,
     "PDF", 1, tools,
     1, metrics, "Optimizely"
-  )
+    )
   );
 }
 
@@ -32,7 +32,7 @@ TEST(ProductAnalystTest, ThrowOnNegativeProductMetrics) {
     28, 50000, "John", 2,
     "CSV", 1, tools,
     -1, metrics, "VWO"
-  )
+    )
   );
 }
 
@@ -67,9 +67,9 @@ TEST(ProductAnalystTest, CopyConstructorDeepCopy) {
   std::string metrics[] = {"MAU"};
 
   ProductAnalyst original(
-          35, 80000, "Maria", 5,
-          "Excel", 1, tools,
-          1, metrics, "AB Tasty"
+    35, 80000, "Maria", 5,
+    "Excel", 1, tools,
+    1, metrics, "AB Tasty"
   );
 
   ProductAnalyst copy(original);
@@ -93,11 +93,11 @@ TEST(ProductAnalystTest, MinimumSalaryValidation) {
   std::string metrics[] = {"LTV"};
 
   ASSERT_ANY_THROW(
-          ProductAnalyst pa(
-  25, 19999, "Kate", 1,
-  "PPT", 1, tools,
-  1, metrics, "Unbounce"
-  )
+    ProductAnalyst pa(
+      25, 19999, "Kate", 1,
+      "PPT", 1, tools,
+      1, metrics, "Unbounce"
+    )
   );
 }
 
@@ -106,12 +106,12 @@ TEST(ProductAnalystTest, WorkExperienceValidation) {
   std::string metrics[] = {"NPS"};
 
   ASSERT_ANY_THROW(
-          ProductAnalyst pa(
-  22, 25000, "Alex", 0,
-  "Word", 1, tools,
-  1, metrics, "Convert"
-  )
-  );
+    ProductAnalyst pa(
+    22, 25000, "Alex", 0,
+    "Word", 1, tools,
+    1, metrics, "Convert"
+    )
+    );
 }
 
 TEST(ProductAnalystTest, EmptyAbTestingToolInConstructor) {
@@ -119,10 +119,10 @@ TEST(ProductAnalystTest, EmptyAbTestingToolInConstructor) {
   std::string metrics[] = {"CAC"};
 
   ASSERT_ANY_THROW(
-          ProductAnalyst pa(
-  27, 45000, "Peter", 2,
-  "HTML", 1, tools,
-  1, metrics, ""
-  )
+    ProductAnalyst pa(
+    27, 45000, "Peter", 2,
+    "HTML", 1, tools,
+    1, metrics, ""
+    )
   );
 }

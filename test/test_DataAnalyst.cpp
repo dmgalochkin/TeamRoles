@@ -10,7 +10,7 @@ TEST(DataAnalystTest, CreateWithValidParameters) {
     "Jupyter", 2, tools,
     "Apache Hadoop", "Tableau"
     )
-    );
+  );
 }
 
 TEST(DataAnalystTest, DefaultConstructorValues) {
@@ -28,7 +28,7 @@ TEST(DataAnalystTest, ThrowOnEmptyPlatformInConstructor) {
   25, 50000, "John", 2,
   "CSV", 1, tools,
   "", "PowerBI"
-  )
+    )
   );
 }
 
@@ -74,7 +74,7 @@ TEST(DataAnalystTest, MinimumSalaryValidation) {
 22, 19999, "Kate", 1,
 "PPT", 1, tools,
 "Snowflake", "Qlik"
-  )
+    )
   );
 }
 
@@ -86,6 +86,6 @@ TEST(DataAnalystTest, WorkExperienceValidation) {
     24, 25000, "Alex", 0,
     "Word", 1, tools,
     "Google Cloud", "Metabase"
-  )
+    )
   );
 }

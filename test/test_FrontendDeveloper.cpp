@@ -10,7 +10,7 @@ TEST(FrontendDeveloperTest, CreateWithValidParameters) {
     25, 120000, "Anna", 4, 2,
     2, langs, "VSCode",
     1, frameworks, true
-  )
+    )
   );
 }
 
@@ -23,7 +23,7 @@ TEST(FrontendDeveloperTest, ThrowOnNegativeUIFrameworks) {
     22, 90000, "Kate", 3, 1,
     1, langs, "Sublime",
     -1, frameworks, false
-  )
+    )
   );
 }
 
@@ -99,7 +99,7 @@ TEST(FrontendDeveloperTest, ThrowOnInvalidLevel) {
     20, 30000, "Lena", 3, 0,
     1, langs, "Atom",
     1, frameworks, false
-  )
+    )
   );
 
   ASSERT_ANY_THROW( // Уровень 4
@@ -107,7 +107,7 @@ TEST(FrontendDeveloperTest, ThrowOnInvalidLevel) {
     20, 30000, "Lena", 3, 4,
     1, langs, "Atom",
     1, frameworks, false
-  )
+    )
   );
 }
 
@@ -120,6 +120,6 @@ TEST(FrontendDeveloperTest, ThrowOnLowSalary) {
     30, 29999, "Ivan", 5, 2,
     1, langs, "PHPStorm",
     1, frameworks, true
-  )
+    )
   );
 }
