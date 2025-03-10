@@ -6,10 +6,10 @@ TEST(FrontendDeveloperTest, CreateWithValidParameters) {
   std::string frameworks[] = {"React"};
 
   ASSERT_NO_THROW(
-          FrontendDeveloper dev(
-          25, 120000, "Anna", 4, 2,
-          2, langs, "VSCode",
-          1, frameworks, true
+    FrontendDeveloper dev(
+    25, 120000, "Anna", 4, 2,
+    2, langs, "VSCode",
+    1, frameworks, true
   )
   );
 }
@@ -19,10 +19,10 @@ TEST(FrontendDeveloperTest, ThrowOnNegativeUIFrameworks) {
   std::string frameworks[] = {"Vue"};
 
   ASSERT_ANY_THROW(
-          FrontendDeveloper dev(
-          22, 90000, "Kate", 3, 1,
-          1, langs, "Sublime",
-          -1, frameworks, false
+    FrontendDeveloper dev(
+    22, 90000, "Kate", 3, 1,
+    1, langs, "Sublime",
+    -1, frameworks, false
   )
   );
 }
@@ -69,9 +69,9 @@ TEST(FrontendDeveloperTest, CopyConstructorDeepCopies) {
   std::string frameworks[] = {"Next.js"};
 
   FrontendDeveloper orig(
-          30, 150000, "Mike", 5, 3,
-          1, langs, "WebStorm",
-          1, frameworks, true
+    30, 150000, "Mike", 5, 3,
+    1, langs, "WebStorm",
+    1, frameworks, true
   );
 
   FrontendDeveloper copy(orig);
@@ -95,18 +95,18 @@ TEST(FrontendDeveloperTest, ThrowOnInvalidLevel) {
   std::string frameworks[] = {"Bootstrap"};
 
   ASSERT_ANY_THROW( // Уровень 0
-          FrontendDeveloper dev(
-          20, 30000, "Lena", 3, 0,
-          1, langs, "Atom",
-          1, frameworks, false
+    FrontendDeveloper dev(
+    20, 30000, "Lena", 3, 0,
+    1, langs, "Atom",
+    1, frameworks, false
   )
   );
 
   ASSERT_ANY_THROW( // Уровень 4
-          FrontendDeveloper dev(
-          20, 30000, "Lena", 3, 4,
-          1, langs, "Atom",
-          1, frameworks, false
+    FrontendDeveloper dev(
+    20, 30000, "Lena", 3, 4,
+    1, langs, "Atom",
+    1, frameworks, false
   )
   );
 }
@@ -116,10 +116,10 @@ TEST(FrontendDeveloperTest, ThrowOnLowSalary) {
   std::string frameworks[] = {"Laravel"};
 
   ASSERT_ANY_THROW(
-          FrontendDeveloper dev(
-          30, 29999, "Ivan", 5, 2,
-          1, langs, "PHPStorm",
-          1, frameworks, true
+    FrontendDeveloper dev(
+    30, 29999, "Ivan", 5, 2,
+    1, langs, "PHPStorm",
+    1, frameworks, true
   )
   );
 }

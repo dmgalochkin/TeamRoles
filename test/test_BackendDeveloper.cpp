@@ -3,7 +3,7 @@
 
 
 
-TEST(BackendDeveloper, can_create_with_valid_parameters) {
+TEST(BackendDeveloper, CreateWithValidParameters) {
   std::string langs[] = {"C++", "Python"};
   std::string dbs[] = {"PostgreSQL"};
   std::string containers[] = {"Docker"};
@@ -17,7 +17,7 @@ TEST(BackendDeveloper, can_create_with_valid_parameters) {
   );
 }
 
-TEST(BackendDeveloper, can_get_basic_properties) {
+TEST(BackendDeveloper, GetBasicProperties) {
   BackendDeveloper dev;
 
   EXPECT_EQ(dev.GetRole(), "BackendDeveloper");
@@ -25,7 +25,7 @@ TEST(BackendDeveloper, can_get_basic_properties) {
   EXPECT_EQ(dev.GetNumberOfDatabases(), 0);
 }
 
-TEST(BackendDeveloper, throws_when_negative_databases) {
+TEST(BackendDeveloper, ThrowsWhenNegativeDatabases) {
   std::string langs[] = {"C++"};
   std::string dbs[] = {"MySQL"};
   std::string containers[] = {"Podman"};
@@ -39,7 +39,7 @@ TEST(BackendDeveloper, throws_when_negative_databases) {
   );
 }
 
-TEST(BackendDeveloper, can_set_databases) {
+TEST(BackendDeveloper, SetDatabases) {
   BackendDeveloper dev;
   std::string new_dbs[] = {"Redis", "MongoDB"};
 
@@ -47,7 +47,7 @@ TEST(BackendDeveloper, can_set_databases) {
   EXPECT_EQ(dev.GetNumberOfDatabases(), 2);
 }
 
-TEST(BackendDeveloper, copy_constructor_works) {
+TEST(BackendDeveloper, CopyConstructorWorks) {
   std::string langs[] = {"Go"};
   std::string dbs[] = {"Cassandra"};
   std::string containers[] = {"Kubernetes"};

@@ -25,10 +25,10 @@ TEST(DataAnalystTest, ThrowOnEmptyPlatformInConstructor) {
 std::string tools[] = {"Excel"};
 
     ASSERT_ANY_THROW(
-            DataAnalyst da(
-          25, 50000, "John", 2,
-          "CSV", 1, tools,
-          "", "PowerBI"
+      DataAnalyst da(
+    25, 50000, "John", 2,
+    "CSV", 1, tools,
+    "", "PowerBI"
     )
     );
 }
@@ -55,9 +55,9 @@ TEST(DataAnalystTest, CopyConstructorValues) {
   std::string tools[] = {"R", "Spark"};
 
   DataAnalyst original(
-          35, 120000, "Maria", 5,
-          "PDF", 2, tools,
-          "Databricks", "Redash"
+    35, 120000, "Maria", 5,
+    "PDF", 2, tools,
+    "Databricks", "Redash"
   );
 
   DataAnalyst copy(original);
@@ -71,10 +71,10 @@ TEST(DataAnalystTest, MinimumSalaryValidation) {
   std::string tools[] = {"PowerBI"};
 
   ASSERT_ANY_THROW(
-          DataAnalyst da(
-  22, 19999, "Kate", 1,
-  "PPT", 1, tools,
-  "Snowflake", "Qlik"
+    DataAnalyst da(
+22, 19999, "Kate", 1,
+"PPT", 1, tools,
+"Snowflake", "Qlik"
   )
   );
 }
@@ -83,10 +83,10 @@ TEST(DataAnalystTest, WorkExperienceValidation) {
   std::string tools[] = {"Tableau"};
 
   ASSERT_ANY_THROW(
-          DataAnalyst da(
-          24, 25000, "Alex", 0,
-          "Word", 1, tools,
-          "Google Cloud", "Metabase"
+    DataAnalyst da(
+    24, 25000, "Alex", 0,
+    "Word", 1, tools,
+    "Google Cloud", "Metabase"
   )
   );
 }

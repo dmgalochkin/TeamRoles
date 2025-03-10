@@ -24,16 +24,16 @@ TEST(ProductAnalystTest, DefaultConstructorValues) {
 }
 
 TEST(ProductAnalystTest, ThrowOnNegativeProductMetrics) {
-std::string tools[] = {"Mixpanel"};
-std::string metrics[] = {"DAU"};
+  std::string tools[] = {"Mixpanel"};
+  std::string metrics[] = {"DAU"};
 
-ASSERT_ANY_THROW(
-        ProductAnalyst pa(
-        28, 50000, "John", 2,
-        "CSV", 1, tools,
-        -1, metrics, "VWO"
-)
-);
+  ASSERT_ANY_THROW(
+    ProductAnalyst pa(
+    28, 50000, "John", 2,
+    "CSV", 1, tools,
+    -1, metrics, "VWO"
+  )
+  );
 }
 
 TEST(ProductAnalystTest, GetRoleReturnsCorrectValue) {
