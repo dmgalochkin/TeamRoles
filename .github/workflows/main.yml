@@ -36,7 +36,9 @@ jobs:
       - name: Run a multi-line script
         run: |
           pwd
+          ls
           mkdir build
+          ls
           cd build
           pwd
           ls
