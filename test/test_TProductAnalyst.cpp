@@ -1,4 +1,4 @@
-#include "ProductAnalyst.h"
+#include "TProductAnalyst.h"
 #include <gtest.h>
 
 TEST(ProductAnalystTest, CreateWithValidParameters) {
@@ -6,7 +6,7 @@ TEST(ProductAnalystTest, CreateWithValidParameters) {
   std::string metrics[] = {"Conversion Rate"};
 
   ASSERT_NO_THROW(
-    ProductAnalyst pa(
+          TProductAnalyst pa(
     30, 60000, "Anna", 3,
     "PDF", 1, tools,
     1, metrics, "Optimizely"
@@ -15,7 +15,7 @@ TEST(ProductAnalystTest, CreateWithValidParameters) {
 }
 
 TEST(ProductAnalystTest, DefaultConstructorValues) {
-  ProductAnalyst pa;
+  TProductAnalyst pa;
 
   EXPECT_EQ(pa.GetAge(), 25);
   EXPECT_EQ(pa.GetSalary(), 50000);
@@ -28,7 +28,7 @@ TEST(ProductAnalystTest, ThrowOnNegativeProductMetrics) {
   std::string metrics[] = {"DAU"};
 
   ASSERT_ANY_THROW(
-    ProductAnalyst pa(
+          TProductAnalyst pa(
     28, 50000, "John", 2,
     "CSV", 1, tools,
     -1, metrics, "VWO"
@@ -37,12 +37,12 @@ TEST(ProductAnalystTest, ThrowOnNegativeProductMetrics) {
 }
 
 TEST(ProductAnalystTest, GetRoleReturnsCorrectValue) {
-  ProductAnalyst pa;
+  TProductAnalyst pa;
   EXPECT_EQ(pa.GetRole(), "ProductAnalyst");
 }
 
 TEST(ProductAnalystTest, SetProductMetricsWorks) {
-  ProductAnalyst pa;
+  TProductAnalyst pa;
   std::string metrics[] = {"Retention", "ARPU"};
 
   ASSERT_NO_THROW(pa.SetProductMetrics(2, metrics));
@@ -55,7 +55,7 @@ TEST(ProductAnalystTest, SetProductMetricsWorks) {
 }
 
 TEST(ProductAnalystTest, SetAbTestingToolValidation) {
-  ProductAnalyst pa;
+  TProductAnalyst pa;
 
   ASSERT_ANY_THROW(pa.SetAbTestingTool(""));
   ASSERT_NO_THROW(pa.SetAbTestingTool("Google Optimize"));
@@ -66,13 +66,13 @@ TEST(ProductAnalystTest, CopyConstructorDeepCopy) {
   std::string tools[] = {"Amplitude"};
   std::string metrics[] = {"MAU"};
 
-  ProductAnalyst original(
+  TProductAnalyst original(
     35, 80000, "Maria", 5,
     "Excel", 1, tools,
     1, metrics, "AB Tasty"
   );
 
-  ProductAnalyst copy(original);
+  TProductAnalyst copy(original);
 
   // Проверка базовых полей
   EXPECT_EQ(copy.GetName(), "Maria");
@@ -93,7 +93,7 @@ TEST(ProductAnalystTest, MinimumSalaryValidation) {
   std::string metrics[] = {"LTV"};
 
   ASSERT_ANY_THROW(
-    ProductAnalyst pa(
+          TProductAnalyst pa(
       25, 19999, "Kate", 1,
       "PPT", 1, tools,
       1, metrics, "Unbounce"
@@ -106,7 +106,7 @@ TEST(ProductAnalystTest, WorkExperienceValidation) {
   std::string metrics[] = {"NPS"};
 
   ASSERT_ANY_THROW(
-    ProductAnalyst pa(
+          TProductAnalyst pa(
     22, 25000, "Alex", 0,
     "Word", 1, tools,
     1, metrics, "Convert"
@@ -119,7 +119,7 @@ TEST(ProductAnalystTest, EmptyAbTestingToolInConstructor) {
   std::string metrics[] = {"CAC"};
 
   ASSERT_ANY_THROW(
-    ProductAnalyst pa(
+          TProductAnalyst pa(
     27, 45000, "Peter", 2,
     "HTML", 1, tools,
     1, metrics, ""

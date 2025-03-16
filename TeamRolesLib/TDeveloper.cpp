@@ -1,29 +1,30 @@
-#include "Developer.h"
-Developer::Developer() : Employee::Employee()
+#include "TDeveloper.h"
+TDeveloper::TDeveloper() : TEmployee::TEmployee()
 {
   this->level = 1;
   this->numberOfProgrammingLanguages = 0;
   this->programmingLanguages = nullptr;
   this->preferredIDE = "Notepad";
+  this->role = "Developer";
 }
 
-Developer::Developer(int age_, int salary_,
-    const std::string & name_, int workExperience_,
-    int level_, int numberOfProgrammingLanguages_,
-    std::string* programmingLanguages_,
-    const std::string & preferredIDE_) : Employee::Employee(age_, salary_, name_, workExperience_)
+TDeveloper::TDeveloper(int age_, int salary_,
+                       const std::string & name_, int workExperience_,
+                       int level_, int numberOfProgrammingLanguages_,
+                       std::string* programmingLanguages_,
+                       const std::string & preferredIDE_) : TEmployee::TEmployee(age_, salary_, name_, workExperience_)
 {
   if (workExperience_ < 3)
-    throw "Developer can't have work experience less than 3 years ";
+    throw "TDeveloper can't have work experience less than 3 years ";
   if (salary_ < 30000)
-    throw "Developer can't have salary less than 30000 RUB";
+    throw "TDeveloper can't have salary less than 30000 RUB";
 
   if (level_ < 1)
-    throw "Developer can't have level less than 1";
+    throw "TDeveloper can't have level less than 1";
   if (level_ > 3)
-    throw "Developer can't have level more than 3";  this->level = level_;
+    throw "TDeveloper can't have level more than 3";  this->level = level_;
   if (numberOfProgrammingLanguages_ < 0)
-    throw "Developer can't have number of programming languages less than 0";
+    throw "TDeveloper can't have number of programming languages less than 0";
   this->numberOfProgrammingLanguages = numberOfProgrammingLanguages_;
   if (this->numberOfProgrammingLanguages != 0)
   {
@@ -34,9 +35,10 @@ Developer::Developer(int age_, int salary_,
   if (preferredIDE_.empty())
     throw "Preferred IDE can't be empty";
   this->preferredIDE = preferredIDE_;
+  this->role = "Developer";
 }
 
-Developer::Developer(const Developer& p) : Employee::Employee(p)
+TDeveloper::TDeveloper(const TDeveloper& p) : TEmployee::TEmployee(p)
 {
   this->level = p.level;
   this->numberOfProgrammingLanguages = p.numberOfProgrammingLanguages;
@@ -48,24 +50,24 @@ Developer::Developer(const Developer& p) : Employee::Employee(p)
   }
 }
 
-Developer::~Developer()
+TDeveloper::~TDeveloper()
 {
   if (this->numberOfProgrammingLanguages && this->programmingLanguages != nullptr)
     delete[] this->programmingLanguages;
 }
 
 
-int Developer::GetLevel()
+int TDeveloper::GetLevel()
 {
   return this->level;
 }
 
-int Developer::GetNumberOfProgrammingLanguages()
+int TDeveloper::GetNumberOfProgrammingLanguages()
 {
   return this->numberOfProgrammingLanguages;
 }
 
-std::string* Developer::GetProgrammingLanguages()
+std::string* TDeveloper::GetProgrammingLanguages()
 {
   std::string* programmingLanguages_ = new std::string[this->numberOfProgrammingLanguages];
   for (int i = 0; i < this->numberOfProgrammingLanguages; ++i)
@@ -73,25 +75,25 @@ std::string* Developer::GetProgrammingLanguages()
   return programmingLanguages_;
 }
 
-std::string Developer::GetPreferredIDE()
+std::string TDeveloper::GetPreferredIDE()
 {
   return this->preferredIDE;
 }
 
-void Developer::SetLevel(int level_)
+void TDeveloper::SetLevel(int level_)
 {
   if (level_ < 1)
-    throw "Developer can't have level less than 1";
+    throw "TDeveloper can't have level less than 1";
   if (level_ > 3)
-    throw "Developer can't have level more than 3";
+    throw "TDeveloper can't have level more than 3";
   this->level = level_;
 }
 
-void Developer::SetProgrammingLanguages(int numberOfProgrammingLanguages_,
-                             std::string* programmingLanguages_)
+void TDeveloper::SetProgrammingLanguages(int numberOfProgrammingLanguages_,
+                                         std::string* programmingLanguages_)
 {
   if (numberOfProgrammingLanguages_ < 0)
-    throw "Developer can't have number of programming languages less than 0";
+    throw "TDeveloper can't have number of programming languages less than 0";
   if (this->programmingLanguages != nullptr)
     delete[] this->programmingLanguages;
   this->numberOfProgrammingLanguages = numberOfProgrammingLanguages_;
@@ -106,32 +108,27 @@ void Developer::SetProgrammingLanguages(int numberOfProgrammingLanguages_,
 
 }
 
-void Developer::SetPreferredIDE(const std::string & preferredIDE_)
+void TDeveloper::SetPreferredIDE(const std::string & preferredIDE_)
 {
   if (preferredIDE_.empty())
     throw "Preferred IDE can't be empty";
   this->preferredIDE = preferredIDE_;
 }
 
-void Developer::SetSalary(int salary_)
+void TDeveloper::SetSalary(int salary_)
 {
   if (salary_ < this->salary)
     throw "Cannot decrease salary";
   if (salary_ < 30000)
-    throw "Developer can't have salary less than 30000 RUB";
+    throw "TDeveloper can't have salary less than 30000 RUB";
   this->salary = salary_;
 }
 
-void Developer::SetWorkExperience(int workExperience_)
+void TDeveloper::SetWorkExperience(int workExperience_)
 {
   if (workExperience_ < this->workExperience)
     throw "Cannot decrease work experience";
   if (workExperience_ < 3)
-    throw "Developer can't have work experience less than 3 years ";
+    throw "TDeveloper can't have work experience less than 3 years ";
   this->workExperience = workExperience_;
-}
-
-std::string Developer::GetRole()
-{
-  return "Developer";
 }

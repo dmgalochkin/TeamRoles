@@ -1,8 +1,8 @@
 #pragma once
 #include "string"
-#include "Employee.h"
+#include "TEmployee.h"
 
-class Analyst : public Employee {
+class TAnalyst : public TEmployee {
 protected:
   std::string reportFormat;
   int numberOfAnalysisTools;
@@ -20,16 +20,13 @@ public:
   void SetSalary(int salary_);
   void SetWorkExperience(int workExperience_);
 
-  std::string GetRole();
+  virtual void Read(std::istream & i) = 0;
 
-  virtual void print(std::ostream & o) = 0;
-  virtual void read(std::istream & i) = 0;
-
-  Analyst();
-  Analyst(int age_, int salary_,
-            const std::string & name_, int workExperience_,
-            const std::string & reportFormat_, int numberOfAnalysisTools_,
-            std::string* analysisTools_);
-  Analyst(const Analyst & p);
-  ~Analyst();
+  TAnalyst();
+  TAnalyst(int age_, int salary_,
+           const std::string & name_, int workExperience_,
+           const std::string & reportFormat_, int numberOfAnalysisTools_,
+           std::string* analysisTools_);
+  TAnalyst(const TAnalyst & p);
+  ~TAnalyst();
 };

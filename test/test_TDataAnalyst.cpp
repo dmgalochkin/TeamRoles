@@ -1,11 +1,11 @@
-#include "DataAnalyst.h"
+#include "TDataAnalyst.h"
 #include <gtest.h>
 
 TEST(DataAnalystTest, CreateWithValidParameters) {
   std::string tools[] = {"Python", "SQL"};
 
   ASSERT_NO_THROW(
-    DataAnalyst da(
+          TDataAnalyst da(
     28, 85000, "Anna", 3,
     "Jupyter", 2, tools,
     "Apache Hadoop", "Tableau"
@@ -14,7 +14,7 @@ TEST(DataAnalystTest, CreateWithValidParameters) {
 }
 
 TEST(DataAnalystTest, DefaultConstructorValues) {
-  DataAnalyst da;
+  TDataAnalyst da;
   EXPECT_EQ(da.GetAge(), 25);
   EXPECT_EQ(da.GetSalary(), 50000);
   EXPECT_EQ(da.GetBigDataPlatform(), "Google BigQuery");
@@ -24,7 +24,7 @@ TEST(DataAnalystTest, DefaultConstructorValues) {
 TEST(DataAnalystTest, ThrowOnEmptyPlatformInConstructor) {
   std::string tools[] = {"Excel"};
   ASSERT_ANY_THROW(
-    DataAnalyst da(
+          TDataAnalyst da(
   25, 50000, "John", 2,
   "CSV", 1, tools,
   "", "PowerBI"
@@ -33,12 +33,12 @@ TEST(DataAnalystTest, ThrowOnEmptyPlatformInConstructor) {
 }
 
 TEST(DataAnalystTest, GetRoleReturnsCorrectValue) {
-  DataAnalyst da;
+  TDataAnalyst da;
   EXPECT_EQ(da.GetRole(), "DataAnalyst");
 }
 
 TEST(DataAnalystTest, SetMethodsValidation) {
-  DataAnalyst da;
+  TDataAnalyst da;
 
   ASSERT_ANY_THROW(da.SetBigDataPlatform(""));
   ASSERT_ANY_THROW(da.SetDataVisualizationTool(""));
@@ -53,13 +53,13 @@ TEST(DataAnalystTest, SetMethodsValidation) {
 TEST(DataAnalystTest, CopyConstructorValues) {
   std::string tools[] = {"R", "Spark"};
 
-  DataAnalyst original(
+  TDataAnalyst original(
     35, 120000, "Maria", 5,
     "PDF", 2, tools,
     "Databricks", "Redash"
   );
 
-  DataAnalyst copy(original);
+  TDataAnalyst copy(original);
 
   EXPECT_EQ(copy.GetName(), "Maria");
   EXPECT_EQ(copy.GetBigDataPlatform(), "Databricks");
@@ -70,10 +70,10 @@ TEST(DataAnalystTest, MinimumSalaryValidation) {
   std::string tools[] = {"PowerBI"};
 
   ASSERT_ANY_THROW(
-    DataAnalyst da(
-22, 19999, "Kate", 1,
-"PPT", 1, tools,
-"Snowflake", "Qlik"
+          TDataAnalyst da(
+      22, 19999, "Kate", 1,
+      "PPT", 1, tools,
+      "Snowflake", "Qlik"
     )
   );
 }
@@ -82,7 +82,7 @@ TEST(DataAnalystTest, WorkExperienceValidation) {
   std::string tools[] = {"Tableau"};
 
   ASSERT_ANY_THROW(
-    DataAnalyst da(
+          TDataAnalyst da(
     24, 25000, "Alex", 0,
     "Word", 1, tools,
     "Google Cloud", "Metabase"

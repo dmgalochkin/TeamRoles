@@ -1,15 +1,16 @@
 #include <string>
 #include <iostream>
-#include "Employee.h"
+#include "TEmployee.h"
 
-Employee::Employee() {
+TEmployee::TEmployee() {
   this->age = 25;
   this->salary = 50000;
   this->name = "John";
   this->workExperience = 0;
+  this->role = "Employee";
 }
 
-Employee::Employee(int age_, int salary_, const std::string & name_, int workExperience_) : Employee::Employee()
+TEmployee::TEmployee(int age_, int salary_, const std::string & name_, int workExperience_) : TEmployee::TEmployee()
 {
   if (age_ <= 0)
     throw "Can't create employee with non positive age";
@@ -23,9 +24,10 @@ Employee::Employee(int age_, int salary_, const std::string & name_, int workExp
   if (workExperience_ < 0)
     throw "Can't create employee with negative work experience";
   this->workExperience = workExperience_;
+  this->role = "Employee";
 }
 
-Employee::Employee(const Employee& p)
+TEmployee::TEmployee(const TEmployee& p)
 {
   this->age = p.age;
   this->salary = p.salary;
@@ -33,34 +35,39 @@ Employee::Employee(const Employee& p)
   this->workExperience = p.workExperience;
 }
 
-int Employee::GetAge()
+int TEmployee::GetAge()
 {
   return this->age;
 }
 
-int Employee::GetSalary(){
+int TEmployee::GetSalary(){
   return this->salary;
 }
 
-std::string Employee::GetName()
+std::string TEmployee::GetName()
 {
   return this->name;
 }
 
-int Employee::GetWorkExperience()
+std::string TEmployee::GetRole()
+{
+  return this->role;
+}
+
+int TEmployee::GetWorkExperience()
 {
   return this->workExperience;
 }
 
 
-void Employee::SetAge(int age_)
+void TEmployee::SetAge(int age_)
 {
   if (age_ < this->age)
     throw "Can't decrease employee's age";
   this->age = age_;
 }
 
-void Employee::SetSalary(int salary_)
+void TEmployee::SetSalary(int salary_)
 {
   if (salary_ < this->salary)
     throw "Can't decrease employee's salary";
@@ -68,18 +75,19 @@ void Employee::SetSalary(int salary_)
 }
 
 
-void Employee::SetName(const std::string & name_)
+void TEmployee::SetName(const std::string & name_)
 {
   if (name_.empty())
     throw "Can't set empty name";
   this->name = name_;
 }
 
-std::ostream& operator <<(std::ostream& o, Employee& e) {
-  e.print(o);
+std::ostream& operator <<(std::ostream& o, TEmployee& e) {
+  o << e.name << ' ' << e.role;
   return o;
 }
-std::istream& operator >>(std::istream& i, Employee& e) {
-  e.read(i);
+
+std::istream& operator >>(std::istream& i, TEmployee& e) {
+  e.Read(i);
   return i;
 }

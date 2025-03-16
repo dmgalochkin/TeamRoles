@@ -1,4 +1,4 @@
-#include "FrontendDeveloper.h"
+#include "TFrontendDeveloper.h"
 #include <gtest.h>
 
 TEST(FrontendDeveloperTest, CreateWithValidParameters) {
@@ -6,7 +6,7 @@ TEST(FrontendDeveloperTest, CreateWithValidParameters) {
   std::string frameworks[] = {"React"};
 
   ASSERT_NO_THROW(
-    FrontendDeveloper dev(
+          TFrontendDeveloper dev(
     25, 120000, "Anna", 4, 2,
     2, langs, "VSCode",
     1, frameworks, true
@@ -19,7 +19,7 @@ TEST(FrontendDeveloperTest, ThrowOnNegativeUIFrameworks) {
   std::string frameworks[] = {"Vue"};
 
   ASSERT_ANY_THROW(
-    FrontendDeveloper dev(
+          TFrontendDeveloper dev(
     22, 90000, "Kate", 3, 1,
     1, langs, "Sublime",
     -1, frameworks, false
@@ -28,7 +28,7 @@ TEST(FrontendDeveloperTest, ThrowOnNegativeUIFrameworks) {
 }
 
 TEST(FrontendDeveloperTest, DefaultValuesCorrect) {
-  FrontendDeveloper dev;
+  TFrontendDeveloper dev;
 
   EXPECT_EQ(dev.GetAge(), 25);
   EXPECT_EQ(dev.GetSalary(), 50000);
@@ -37,12 +37,12 @@ TEST(FrontendDeveloperTest, DefaultValuesCorrect) {
 }
 
 TEST(FrontendDeveloperTest, GetRoleReturnsCorrectValue) {
-  FrontendDeveloper dev;
+  TFrontendDeveloper dev;
   EXPECT_EQ(dev.GetRole(), "FrontendDeveloper");
 }
 
 TEST(FrontendDeveloperTest, SetUIFrameworksWorks) {
-  FrontendDeveloper dev;
+  TFrontendDeveloper dev;
   std::string frameworks[] = {"Angular", "Svelte"};
 
   ASSERT_NO_THROW(dev.SetUIFrameworks(2, frameworks));
@@ -55,7 +55,7 @@ TEST(FrontendDeveloperTest, SetUIFrameworksWorks) {
 }
 
 TEST(FrontendDeveloperTest, SetPWAKnowledgeUpdatesValue) {
-  FrontendDeveloper dev;
+  TFrontendDeveloper dev;
 
   dev.SetPWAKnowledge(true);
   EXPECT_TRUE(dev.GetPWAKnowledge());
@@ -68,13 +68,13 @@ TEST(FrontendDeveloperTest, CopyConstructorDeepCopies) {
   std::string langs[] = {"TypeScript"};
   std::string frameworks[] = {"Next.js"};
 
-  FrontendDeveloper orig(
+  TFrontendDeveloper orig(
     30, 150000, "Mike", 5, 3,
     1, langs, "WebStorm",
     1, frameworks, true
   );
 
-  FrontendDeveloper copy(orig);
+  TFrontendDeveloper copy(orig);
 
   // Проверка базовых полей
   EXPECT_EQ(copy.GetName(), "Mike");
@@ -95,7 +95,7 @@ TEST(FrontendDeveloperTest, ThrowOnInvalidLevel) {
   std::string frameworks[] = {"Bootstrap"};
 
   ASSERT_ANY_THROW( // Уровень 0
-    FrontendDeveloper dev(
+    TFrontendDeveloper dev(
     20, 30000, "Lena", 3, 0,
     1, langs, "Atom",
     1, frameworks, false
@@ -103,7 +103,7 @@ TEST(FrontendDeveloperTest, ThrowOnInvalidLevel) {
   );
 
   ASSERT_ANY_THROW( // Уровень 4
-    FrontendDeveloper dev(
+    TFrontendDeveloper dev(
     20, 30000, "Lena", 3, 4,
     1, langs, "Atom",
     1, frameworks, false
@@ -116,7 +116,7 @@ TEST(FrontendDeveloperTest, ThrowOnLowSalary) {
   std::string frameworks[] = {"Laravel"};
 
   ASSERT_ANY_THROW(
-    FrontendDeveloper dev(
+          TFrontendDeveloper dev(
     30, 29999, "Ivan", 5, 2,
     1, langs, "PHPStorm",
     1, frameworks, true

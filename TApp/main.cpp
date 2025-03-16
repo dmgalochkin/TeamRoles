@@ -1,24 +1,24 @@
 #include <iostream>
-#include "Employee.h"
-#include "BackendDeveloper.h"
-#include "FrontendDeveloper.h"
-#include "DataAnalyst.h"
-#include "ProductAnalyst.h"
+#include "TEmployee.h"
+#include "TBackendDeveloper.h"
+#include "TFrontendDeveloper.h"
+#include "TDataAnalyst.h"
+#include "TProductAnalyst.h"
 int main()
 {
-  Employee** array = new Employee*[4];
-  array[0] = new BackendDeveloper();
-  array[1] = new FrontendDeveloper();
-  array[2] = new DataAnalyst();
-  array[3] = new ProductAnalyst();
+  TEmployee** array = new TEmployee*[4];
+  array[0] = new TBackendDeveloper();
+  array[1] = new TFrontendDeveloper();
+  array[2] = new TDataAnalyst();
+  array[3] = new TProductAnalyst();
+
+  array[1]->SetName("Mike");
+  array[2]->SetName("Robert");
+  array[3]->SetName("David");
 
   for (int i = 0; i < 4; ++i) {
     std::cout << (*array[i]) << '\n';
   }
-
-  std::cout << (*array[0]) << '\n';
-  std::cin >> (*array[0]);
-  std::cout << (*array[0]);
 
   /*
    *

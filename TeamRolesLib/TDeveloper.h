@@ -1,8 +1,8 @@
 #pragma once
 #include <string>
-#include "Employee.h"
+#include "TEmployee.h"
 
-class Developer : public Employee {
+class TDeveloper : public TEmployee {
 protected:
   int level;
   int numberOfProgrammingLanguages;
@@ -23,17 +23,14 @@ public:
   void SetSalary(int salary_);
   void SetWorkExperience(int workExperience_);
 
-  std::string GetRole();
+  virtual void Read(std::istream & i) = 0;
 
-  virtual void print(std::ostream & o) = 0;
-  virtual void read(std::istream & i) = 0;
-
-  Developer();
-  Developer(int age_, int salary_,
-            const std::string & name_, int workExperience_,
-            int level_, int numberOfProgrammingLanguages_,
-            std::string* programmingLanguages_,
-            const std::string & preferredIDE_);
-  Developer(const Developer& p);
-  ~Developer();
+  TDeveloper();
+  TDeveloper(int age_, int salary_,
+             const std::string & name_, int workExperience_,
+             int level_, int numberOfProgrammingLanguages_,
+             std::string* programmingLanguages_,
+             const std::string & preferredIDE_);
+  TDeveloper(const TDeveloper& p);
+  ~TDeveloper();
 };
