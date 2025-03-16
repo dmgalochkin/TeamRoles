@@ -29,6 +29,7 @@ public:
   TEmployee();
   TEmployee(int age_, int salary_, const std::string & name_, int workExperience_);
   TEmployee(const TEmployee& p);
+  ~TEmployee();
 };
 
 std::ostream& operator <<(std::ostream& o, TEmployee& e);

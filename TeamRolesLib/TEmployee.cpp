@@ -35,6 +35,11 @@ TEmployee::TEmployee(const TEmployee& p)
   this->workExperience = p.workExperience;
 }
 
+TEmployee::~TEmployee()
+{
+
+}
+
 int TEmployee::GetAge()
 {
   return this->age;
